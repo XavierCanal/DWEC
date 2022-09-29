@@ -1,5 +1,3 @@
-const correct = "✅";
-const incorrect = "❌";
 const mapaCodificacio = new Map([
     [0, "A"],
     [1, "X"],
@@ -40,6 +38,9 @@ function generateDropBox(options, select) {
 */
 
 function checkCodi(codi){
+    const correct = "✅";
+    const incorrect = "❌";
+
     var check = document.getElementsByName("check"); // Variable amb imatge incorrecte/correcte
     let regex, codificacio, primersCaracters = false; // Variables bool, per el check del input
 
@@ -65,11 +66,13 @@ function checkCodi(codi){
 
 /**
 * 
+* Funcio encarregada de comprovar que els 3 digits del tamany son correctes, i els ajunta. 
+* Si els 3 son correctes, retorna true.
 * 
-* @param {object} size - Input del codi a revisar
 */
 
-function joinSize(size){
+function joinSize(){
+    let amp, llarg, alt = false;
     const amplada = document.getElementsByName("amplada");
     const llargada = document.getElementsByName("llargada");
     const altura = document.getElementsByName("altura");
@@ -80,23 +83,81 @@ function joinSize(size){
 
     if (reg.test(size[0].value)){
         amplada[0].textContent = size[0].value; 
+        amp = true;
     } else {
         amplada[0].textContent = "?"; 
+        amp = false;
     }
 
     if (reg.test(size[1].value)){
         llargada[0].textContent = size[1].value; 
+        llarg = true;
     } else {
         llargada[0].textContent = "?"; 
+        llarg = false;
     }
 
     if (reg.test(size[2].value)){
         altura[0].textContent = size[2].value; 
+        alt= true;
     } else {
         altura[0].textContent = "?"; 
+        alt= false;
     }
+
+    if (amp, llarg, alt) return true; else return false;
     
 }
+
+/**
+* @function checkPassadis Encarregada de comprovar el regex del input del codi del passadis
+* P-DD-ED, Inici de codi amb caràcter 'P' (case sensitive) - 2 dígits - un caràcter E o D (esquerra, dreta) (cs)
+* Exemple: P-43-D
+* 
+* @param {object} codiPassadis - Input del codi a revisar
+*/
+
+function checkPassadis(codiPassadis){
+    const correct = "✅";
+    const incorrect = "❌";
+
+    var check = document.getElementsByName("check"); // Variable amb imatge incorrecte/correcte
+
+    check[1].textContent = incorrect;
+    
+    const reg = /^[P]-[0-9]{2}-[ED]$/;
+
+    if (reg.test(codiPassadis.target.value)) {
+        check[1].textContent = correct; 
+        return true;
+    }
+
+}
+
+/** !!! ACABAR
+* @function checkEstanteria Encarregada de comprovar el regex del input del codi del passadis
+* P-DD-ED, Inici de codi amb caràcter 'P' (case sensitive) - 2 dígits - un caràcter E o D (esquerra, dreta) (cs)
+* Exemple: P-43-D
+* 
+* @param {object} codiEstanteria - Input del codi a revisar
+
+
+function checkPassadis(codiEstanteria){
+    const correct = "✅";
+    const incorrect = "❌";
+
+    var check = document.getElementsByName("check"); // Variable amb imatge incorrecte/correcte
+
+    check[1].textContent = incorrect;
+    
+    const reg = /^[P]-[0-9]{2}-[ED]$/;
+
+    if (reg.test(checkEstanteria.target.value)) {
+        check[1].textContent = correct; 
+        return true;
+    }
+
+}*/
 
 
 window.onload = function start() {
@@ -114,12 +175,19 @@ window.onload = function start() {
     codi[0].addEventListener("input", checkCodi);
 
     /* ----- Caràcteristiques (tamany) -----*/
-    var size = document.getElementsByName("tamany"); // !!Falta arreglar
+    var size = document.getElementsByName("tamany"); 
     size[0].addEventListener("input", joinSize);
     size[1].addEventListener("input", joinSize);
     size[2].addEventListener("input", joinSize);
-    
 
+    /* ----- Ubicació -----*/
+    var ubicacio = document.getElementsByName("ubicacio");
+    ubicacio[0].addEventListener("input", checkPassadis);
+    //ubicacio[1].addEventListener("input", checkEstanteria);
+    //ubicacio[2].addEventListener("input", checkForat);
+
+
+    
 
     for(let i = 0;i<bts.length;i++)
     bts[i].addEventListener("click",clicked);
