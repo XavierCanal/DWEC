@@ -70,8 +70,32 @@ function checkCodi(codi){
 */
 
 function joinSize(size){
-    var sizeJoined = document.getElementsByName("tamanyTotal");
-    sizeJoined[0].textContent = size[0].target.value; //+size[1].value+size[2].value
+    const amplada = document.getElementsByName("amplada");
+    const llargada = document.getElementsByName("llargada");
+    const altura = document.getElementsByName("altura");
+    const size = document.getElementsByName("tamany");
+
+    console.log(typeof size[0].value)
+    const reg = /^[0-9][0-9]*$/;
+
+    if (reg.test(size[0].value)){
+        amplada[0].textContent = size[0].value; 
+    } else {
+        amplada[0].textContent = "?"; 
+    }
+
+    if (reg.test(size[1].value)){
+        llargada[0].textContent = size[1].value; 
+    } else {
+        llargada[0].textContent = "?"; 
+    }
+
+    if (reg.test(size[2].value)){
+        altura[0].textContent = size[2].value; 
+    } else {
+        altura[0].textContent = "?"; 
+    }
+    
 }
 
 
