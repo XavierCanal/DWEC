@@ -34,10 +34,10 @@ function generateDropBox(options, select) {
 * 3 primeres lletres de la $familia. 7 Dígits i un caràcter, que fa referència al %10 dels dìgits 
 * en realció a la variable global $mapaCodificació.
 * 
-* @param {object} codi - Input del codi a revisar
 */
 
-function checkCodi(codi) {
+function checkCodi() {
+    let codi = document.getElementsByName("codi")[0];
     const correct = "✅";
     const incorrect = "❌";
 
@@ -46,20 +46,23 @@ function checkCodi(codi) {
 
     check[0].textContent = incorrect;
     const reg = /^[a-z/A-Z]{3}-[0-9]{7}-[AXMTBCSOPZ]$/; //
-    splitedCode = codi.target.value.split("-");
+    splitedCode = codi.value.split("-");
 
 
     /* ----- Comprovació 3 lletres inicials de la familia coincideixen -----*/
     familia = document.getElementsByName("familia")
     const fam = familia[0].value.substring(0, 3);
     if (fam.toUpperCase() == splitedCode[0].toUpperCase()) primersCaracters = true;
-    regex = (reg.test(codi.target.value));
+    regex = (reg.test(codi.value));
 
     /* ----- Comprovació Caràcter final és igual a %10 dels numeros -----*/
     let numbersMod10 = (parseInt(splitedCode[1])) % 10;
     if (mapaCodificacio.get(numbersMod10) == splitedCode[2]) codificacio = true;
 
-    if (primersCaracters && regex && codificacio) check[0].textContent = correct;
+    if (primersCaracters && regex && codificacio){
+        check[0].textContent = correct;
+        return true;
+    } 
 
 
 }
@@ -85,7 +88,11 @@ function joinSize() {
     llarg = completeSize(size[1].value, llargada, reg);
     alt = completeSize(size[2].value, altura, reg);
 
-    return (amp, llarg, alt);
+    if (amp&& llarg&& alt) {
+        return true;
+    } else {
+        return false;
+    }
 
 }
 
@@ -104,10 +111,10 @@ function completeSize(size, parameter, reg) {
 * P-DD-ED, Inici de codi amb caràcter 'P' (case sensitive) - 2 dígits - un caràcter E o D (esquerra, dreta) (cs)
 * Exemple: P-43-D
 * 
-* @param {object} codiPassadis - Input del codi a revisar
 */
 
-function checkPassadis(codiPassadis) {
+function checkPassadis() {
+    var codiPassadis = document.getElementsByName("ubicacio")[0];
     const correct = "✅";
     const incorrect = "❌";
 
@@ -117,7 +124,7 @@ function checkPassadis(codiPassadis) {
 
     const reg = /^[P]-[0-9]{2}-[ED]$/;
 
-    if (reg.test(codiPassadis.target.value)) {
+    if (reg.test(codiPassadis.value)) {
         check[1].textContent = correct;
         return true;
     }
@@ -132,7 +139,8 @@ function checkPassadis(codiPassadis) {
 * @param {object} codiEstanteria - Input del codi a revisar
 */
 
-function checkEstanteria(codiEstanteria){
+function checkEstanteria(){
+    var codiEstanteria = document.getElementsByName("ubicacio")[1];
     console.log(typeof(codiEstanteria));
     const correct = "✅";
     const incorrect = "❌";
@@ -143,7 +151,7 @@ function checkEstanteria(codiEstanteria){
     
     const reg = /^(EST)-[0-9]{2}[.][0-9]{2}$/;
 
-    if (reg.test(codiEstanteria.target.value)) {
+    if (reg.test(codiEstanteria.value)) {
         check[2].textContent = correct; 
         return true;
     }
@@ -158,7 +166,9 @@ function checkEstanteria(codiEstanteria){
 * @param {object} codiForat - Input del codi a revisar
 */
 
-function checkForat(codiForat){
+function checkForat(){
+    var codiForat = document.getElementsByName("ubicacio")[2];
+
     const correct = "✅";
     const incorrect = "❌";
 
@@ -167,7 +177,7 @@ function checkForat(codiForat){
     check[3].textContent = incorrect;
     const reg = /^[0-9]{2}[*][a-z/A-Z]{3}[*][0-9]{2}[\\\\\][0-9]{3}$/;
 
-    if (reg.test(codiForat.target.value)) {
+    if (reg.test(codiForat.value)) {
         check[3].textContent = correct; 
         return true;
     }
@@ -186,7 +196,7 @@ window.onload = function start() {
     var options = ["Hola", "Met", "Jaumet", "Abecede", "Pepito"];
     options.sort(); // Ordena array alfabeticament
     var select = document.getElementsByName("familia")[0];
-
+    select.addEventListener("change", checkCodi);
     generateDropBox(options, select);
 
     /* ----- Codi ----- */
@@ -206,8 +216,44 @@ window.onload = function start() {
     location[2].addEventListener("input", checkForat);
 
     /* ----- Donada d'alta ----- */
+    var button = document.getElementsByName("submit");
+    button[0].addEventListener("click", register);
 
 
+}
 
+function register(){
+    let results = document.getElementsByName("results")[0];
+    if (checkCodi()&&joinSize()&&checkPassadis()&&checkEstanteria()&&checkForat()) {
+        let familiaP = document.createElement('p');
+        let familia = document.getElementsByName("familia")[0];
+        familiaP.innerText= "Família: "+ familia.value;
+        results.appendChild(familiaP);
+
+        let codiP = document.createElement('p');
+        let codi = document.getElementsByName("codi")[0];
+        codiP.innerText= "Codi: "+ codi.value;
+        results.appendChild(codiP);
+        
+        let nomP = document.createElement('p');
+        let nom = document.getElementsByName("nom")[0];
+        nomP.innerText= "Nom: "+ nom.value;
+        results.appendChild(nomP);
+
+        let caracP = document.createElement('p');
+        let amplada = document.getElementsByName("tamany")[0];
+        let llargada = document.getElementsByName("tamany")[1];
+        let altura = document.getElementsByName("tamany")[2];
+        caracP.innerText= "Característiques: "+ amplada.value+" "+ llargada.value + " " + altura.value;
+        results.appendChild(caracP);
+
+        let ubicacioP = document.createElement('p');
+        let passadis = document.getElementsByName("ubicacio")[0];
+        let estanteria = document.getElementsByName("ubicacio")[1];
+        let forat = document.getElementsByName("ubicacio")[2];
+        ubicacioP.innerText= "Ubicació: "+ passadis.value +" "+ estanteria.value +" "+ forat.value;
+        results.appendChild(ubicacioP); 
+    }
+    
 }
 
