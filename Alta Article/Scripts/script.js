@@ -33,7 +33,7 @@ function generateDropBox(options, select) {
 * Comprovació del codi rebut per input (FFF-DDDDDDD-DC), 3 lletres inicials que coincideixen amb les 
 * 3 primeres lletres de la $familia. 7 Dígits i un caràcter, que fa referència al %10 dels dìgits 
 * en realció a la variable global $mapaCodificació.
-* 
+* @return bool
 */
 
 function checkCodi() {
@@ -71,7 +71,7 @@ function checkCodi() {
 * 
 * Funcio encarregada de comprovar que els 3 digits del tamany son correctes, i els ajunta. 
 * Si els 3 son correctes, retorna true.
-* @return
+* @return bool
 */
 
 function joinSize() {
@@ -110,7 +110,7 @@ function completeSize(size, parameter, reg) {
 * @function checkPassadis Encarregada de comprovar el regex del input del codi del passadis
 * P-DD-ED, Inici de codi amb caràcter 'P' (case sensitive) - 2 dígits - un caràcter E o D (esquerra, dreta) (cs)
 * Exemple: P-43-D
-* 
+* @return bool
 */
 
 function checkPassadis() {
@@ -135,8 +135,7 @@ function checkPassadis() {
 * @function checkEstanteria Encarregada de comprovar el regex del input del codi de la estanteria
 * EST-DD.DD, Inici de codi amb caràcters 'EST' (case sensitive) - 2 dígits - 2 dígits
 * Exemple: EST-19.42
-* 
-* @param {object} codiEstanteria - Input del codi a revisar
+* @return bool
 */
 
 function checkEstanteria(){
@@ -162,8 +161,7 @@ function checkEstanteria(){
 * @function checkForat Encarregada de comprovar el Regex del input del codi del forat
 * DD*FFF*DD\DD, Inici de codi amb 2 dígits * 3 caràcters (no case sensitive) * 2 dígits \ 2 dígits
 * Exemple: 42*SeD*22\90
-* 
-* @param {object} codiForat - Input del codi a revisar
+* @return bool
 */
 
 function checkForat(){
@@ -221,6 +219,11 @@ window.onload = function start() {
 
 
 }
+
+/** 
+* @function register Encarregada de comprovar que tots els camps son correctes, i mostrar totes les dades.
+* 
+*/
 
 function register(){
     let results = document.getElementsByName("results")[0];
