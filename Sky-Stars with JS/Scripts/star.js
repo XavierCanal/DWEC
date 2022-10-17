@@ -1,45 +1,29 @@
+import {Stars} from './all_stars.js';
 
+
+/**
+ * https://ptsjs.org/guide/op-0400
+ * https://codepen.io/2toria/pen/nddZKE
+ * https://www.reddit.com/r/processing/comments/ovupzw/how_to_fill_in_canvas_with_circles_without/
+ * https://stackoverflow.com/questions/8331243/circle-collision-in-javascript
+ */
 export class Star {
   constructor(canvas, ctx) {
     this.ctx = ctx;
     this.canvas = canvas;
-    this.xPos = random(2, canvas.width - 2);
-    this.yPos = random(2, canvas.height - 2);
-    this.alpha = random(0.5, 1);
-    this.size = random(1, 2);
-
-    //Add stars
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(this.xPos, this.yPos, this.size, this.size);
-    ctx.arc(100, 75, 50, 0, 2 * Math.PI);
-
-    this._fill = 'red';
-    this._stroke = 'black';
-    this._strokeWidth = 4;
-    this._speed = 3;
-  }
-
-  isOverlapping(bubblesArr) {
-    while (true) {
-      var hit = 0;
-      for (var i = 0; i < bubblesArr.length; i++) {
-        var circle = bubblesArr[i];
-        var dx = this._x - circle._x;
-        var dy = this._y - circle._y;
-        var rr = this._radius + circle._radius;
-        if (dx * dx + dy * dy < rr * rr) {
-          hit++;
-        }
-      }
-      if (hit == 0) {
-        break; // didn't overlap
-      }
-      this._x = Math.round(Math.random() * this.stage.getWidth());
-      this._y = Math.round(Math.random() * this.stage.getHeight());
-    }
+    
+    this.xPos = Math.round(random(2, canvas.width - 2));
+    this.yPos = Math.round(random(2, canvas.height - 2));
+    this.alpha = Math.round(random(0.5, 1));
+    this.radi = Math.round(random(1, 4));
+    
 
   }
 }
+
+
+
+
 
 function random(min, max) {
   return min + Math.random() * (max + 1 - min);
