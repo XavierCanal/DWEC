@@ -8,14 +8,16 @@ import {Stars} from './all_stars.js';
  * https://stackoverflow.com/questions/8331243/circle-collision-in-javascript
  */
 export class Star {
-  constructor(canvas, ctx) {
+  constructor(canvas, ctx,maxradi) {
     this.ctx = ctx;
     this.canvas = canvas;
     
     this.xPos = Math.round(random(2, canvas.width - 2));
     this.yPos = Math.round(random(2, canvas.height - 2));
     this.alpha = Math.round(random(0.5, 1));
-    this.radi = Math.round(random(1, 4));
+    this.radi = Math.round(random(1, maxradi));
+    this.opacity = "rgba(255, 255, 255," + Math.random() + ")";
+    
     
 
   }
