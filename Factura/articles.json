@@ -1,0 +1,37 @@
+{
+    "Nike Jordan": {
+        "Codi": "9873",
+        "Nom": "Nike Jordan",
+        "Quantitat": "<input value=0 type=\"text\" id=\"Nike Jordan\" name=\"quantitat\">",
+        "Preu": "45",
+        "Total": "0"
+    },
+    "Ozweego": {
+        "Codi": "4562",
+        "Nom": "Ozweego",
+        "Quantitat": "<input value=0 type=\"text\" id=\"Ozweego\" name=\"quantitat\">",
+        "Preu": "120",
+        "Total": "0"
+    },
+    "Addidas Yezzy": {
+        "Codi": "7236",
+        "Nom": "Addidas Yezzy",
+        "Quantitat": "<input value=0 type=\"text\" id=\"Addidas Yezzy\" name=\"quantitat\">",
+        "Preu": "280",
+        "Total": "0"
+    },
+    "Rebook Vintage": {
+        "Codi": "0988",
+        "Nom": "Rebook Vintage",
+        "Quantitat": "<input value=0 type=\"text\" id=\"Rebook Vintage\" name=\"quantitat\">",
+        "Preu": "65",
+        "Total": "0"
+    },
+    "Nike Air Force 1": {
+        "Codi": "7762",
+        "Nom": "Nike Air Force 1",
+        "Quantitat": "<input value=0 type=\"text\" id=\"Nike Air Force 1\" name=\"quantitat\">",
+        "Preu": "90",
+        "Total": "0"
+    }
+}

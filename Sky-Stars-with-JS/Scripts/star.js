@@ -1,12 +1,3 @@
-import {Stars} from './all_stars.js';
-
-
-/**
- * https://ptsjs.org/guide/op-0400
- * https://codepen.io/2toria/pen/nddZKE
- * https://www.reddit.com/r/processing/comments/ovupzw/how_to_fill_in_canvas_with_circles_without/
- * https://stackoverflow.com/questions/8331243/circle-collision-in-javascript
- */
 export class Star {
   constructor(canvas, ctx,maxradi) {
     this.ctx = ctx;
@@ -22,11 +13,6 @@ export class Star {
 
   }
 }
-
-
-
-
-
 function random(min, max) {
   return min + Math.random() * (max + 1 - min);
 }
