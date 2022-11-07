@@ -1,0 +1,42 @@
+{
+    "Nike Jordan": {
+        "Codi": "9873",
+        "Nom": "Nike Jordan",
+        "Quantitat": "<button type=\"submit\" id=\"substract_Nike Jordan\">-</button><input value=0 type=\"text\" id=\"Nike Jordan\" name=\"quantitat\"><button type=\"submit\" id=\"add_Nike Jordan\">-</button>",
+        "Preu": "45",
+        "Descompte" : "<input value=0 type=\"text\" id=\"descompte_Nike Jordan\" name=\"quantitat\">",
+        "Total": "0"
+    },
+    "Ozweego": {
+        "Codi": "4562",
+        "Nom": "Ozweego",
+        "Quantitat": "<button type=\"submit\" id=\"substract_Ozweego\">-</button><input value=0 type=\"text\" id=\"Ozweego\" name=\"quantitat\"><button type=\"submit\" id=\"add_Ozweego\">-</button>",
+        "Preu": "120",
+        "Descompte" : "<input value=0 type=\"text\" id=\"descompte_Ozweego\" name=\"quantitat\">",
+        "Total": "0"
+    },
+    "Addidas Yezzy": {
+        "Codi": "7236",
+        "Nom": "Addidas Yezzy",
+        "Quantitat": "<button type=\"submit\" id=\"substract_Addidas Yezzy\">-</button><input value=0 type=\"text\" id=\"Addidas Yezzy\" name=\"quantitat\"><button type=\"submit\" id=\"add_Addidas Yezzy\">-</button>",
+        "Preu": "280",
+        "Descompte" :"<input value=0 type=\"text\" id=\"descompte_Addidas Yezzy\" name=\"quantitat\">",
+        "Total": "0"
+    },
+    "Rebook Vintage": {
+        "Codi": "0988",
+        "Nom": "Rebook Vintage",
+        "Quantitat": "<button type=\"submit\" id=\"substract_Rebook Vintage\">-</button><input value=0 type=\"text\" id=\"Rebook Vintage\" name=\"quantitat\"><button type=\"submit\" id=\"add_Rebook Vintage\">-</button>",
+        "Preu": "65",
+        "Descompte" : "<input value=0 type=\"text\" id=\"descompte_Rebook Vintage\" name=\"quantitat\">",
+        "Total": "0"
+    },
+    "Nike Air Force 1": {
+        "Codi": "7762",
+        "Nom": "Nike Air Force 1",
+        "Quantitat": "<button type=\"submit\" id=\"substract_Nike Air Force 1\">-</button><input value=0 type=\"text\" id=\"Nike Air Force 1\" name=\"quantitat\"><button type=\"submit\" id=\"add_Nike Air Force 1\">-</button>",
+        "Preu": "90",
+        "Descompte" : "<input value=0 type=\"text\" id=\"descompte_Nike Air Force 1\" name=\"quantitat\">",
+        "Total": "0"
+    }
+}
