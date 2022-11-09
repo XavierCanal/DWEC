@@ -1,0 +1,3 @@
+mkdir "project folder"
+cd  "project folder"
+ng new "Project Name"

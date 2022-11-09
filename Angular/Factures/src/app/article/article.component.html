@@ -1,0 +1,33 @@
+<div>
+    <label> Article: 
+
+    <div class="formBoxRows">
+      <select type="number" [(ngModel)]="selectedArticle" name="articleSelect" id="titleClass">
+        <option *ngFor="let article of arrayArticles"  [ngValue]="article">{{article.nom}}</option>
+      </select>
+      <button (click)="addArticle()" id="addArticle">+</button>
+    </div>
+    </label>
+    
+</div>
+
+<div *ngIf="selectedArticlesArray">
+<h2>Articles</h2>
+<table name="myTable">
+  <tr>
+    <th>Codi</th>
+    <th>Nom</th>
+    <th>Quantitat</th>
+    <th>Preu</th>
+    <th>Total</th>
+  </tr>
+  <tr *ngFor="let article of selectedArticlesArray;">
+    <td class="codi">{{article.codi}}</td> 
+    <td class="name">{{article.nom}}</td>
+    <td class="name"><input type="number" [(ngModel)]="article.quantitat" (ngModelChange)="updateTotal(article)" value="{{article.quantitat}}"></td>
+    <td class="name">{{article.preu}}</td>
+    <td class="name">{{article.total}}</td>
+ </tr>
+</table>
+
+</div> -

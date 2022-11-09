@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <title>Factura</title>
+</head>
+<body>
+    <h3>Num factura: <span id="numCode"></span></h3>
+    <br>
+    <app-article></app-article>
+    <div>
+        <table id="articleTable">
+        </table>
+        <p>Base Imposable: <span id="imposableBase"></span> €</p>
+        <p>IVA (21%): <span id="iva"></span> €</p>
+        <p>Import Total: <span id="totalImport"></span> €</p>
+    </div>
+    <br>
+    <div>
+        <label>Codi factura: <input type="text" id="restoreCode"></label>
+        <button id="restoreButton">Recuperar</button>
+    </div>
+</body>
+</html>
