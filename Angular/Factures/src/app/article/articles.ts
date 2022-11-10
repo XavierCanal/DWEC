@@ -27,10 +27,12 @@ export class Articles {
         this._articles = value;
     }
 
-    public updateTotal() {
+    public updateTotal():number {
+      this.totalPrice = 0;
       this._articles.forEach(element => {
         this.totalPrice = this.totalPrice + element.total;
       });
+      return this.totalPrice;
     }
 
 }

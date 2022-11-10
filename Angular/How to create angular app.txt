@@ -1,3 +1,6 @@
 mkdir "project folder"
 cd  "project folder"
 ng new "Project Name"
+
+CRETE NEW COMPONENT:
+ng g c import-total
