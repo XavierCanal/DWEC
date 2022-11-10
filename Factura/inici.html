@@ -7,7 +7,7 @@
     <h1>FACTURAS FACTUROSAS</h1>
 
     <body>
-      <p style="display: inline" name="Data""></p> / <p2 name="nFactura">a</p2><br>
+      <p style="display: inline" name="Data"></p> / <p2 name="nFactura">a</p2><br>
         Article: <select name="articles" >llista Articles</select><button type="submit" name="afegir">+</button><br><br>
         
         <table name="myTable">
@@ -19,6 +19,15 @@
             <th>Total</th>
           </tr>
         </table>
+
+        <div>
+          Base Imposable: (total sense IVA) <p style="display: inline" name="baseImposable"></p>€<br>
+          (21% de base imposable) IVA 21%:  <p style="display: inline" name="iva"></p>€<br>
+          Import total: <p style="display: inline" name="total"></p>€ 
+   
+
+
+        </div>
 
     </body>
 </html>

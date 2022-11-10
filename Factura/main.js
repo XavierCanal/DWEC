@@ -79,7 +79,10 @@ function addArticle() {
   } else {
     console.log("Articles is empty")
   }
-  
+
+  updateFactura(data);
+    
+
 }
 
 function refreshTotal(event){
@@ -91,7 +94,45 @@ function refreshTotal(event){
 
   total.innerText = preu.innerHTML * quantitat.value;
   
+}
 
+
+function updateFactura(article) {
+  if (JSON.parse(window.localStorage.getItem("factures"))[0] == null) {
+    console.log("if")
+    let arrFactures = JSON.parse(window.localStorage.getItem("factures"));
+    let factura = new Factura(window.localStorage.getItem("nFactura"));
+    factura._articles.push(article);
+    arrFactures[0] = factura;
+    window.localStorage.setItem("factures", JSON.stringify(arrFactures));
+
+  } else{
+    console.log("else")
+    let arrFactures = JSON.parse(window.localStorage.getItem("factures"));
+    let factura = arrFactures[window.localStorage.getItem("nFactura")-1];
+    let count = 0;
+    let repeated = false
+    arrFactures.forEach(field => {
+      console.log("foreach")
+      if (field.codi == article.codi) {
+        console.log("same")
+        field = article;
+        repeated = true;
+      } 
+      count++;
+    });
+    if (!repeated) {
+      console.log("repeated")
+      factura._articles.push(article);
+      arrFactures[window.localStorage.getItem("nFactura")-1] = factura;
+      window.localStorage.setItem("factures", JSON.stringify(arrFactures));
+    } else {
+      window.localStorage.setItem("factures", JSON.stringify(arrFactures));
+    }
+    
+    
+  }
+  
 }
 
 
@@ -104,8 +145,13 @@ window.onload = function start() {
   nFactura.innerText = "01";
   window.localStorage.setItem("nFactura", nFactura.innerText)
 
-  var factures = [];
-  window.localStorage.setItem("factures", JSON.stringify(factures))
+  if (window.localStorage.getItem("factures") == null) {
+    var factures = [];
+    window.localStorage.setItem("factures", JSON.stringify(factures))
+  } else {
+    //load factura
+  }
+  
 
   var select = document.getElementsByName("articles")[0];
   generateDropBox(data, select); // data is .json file imported
