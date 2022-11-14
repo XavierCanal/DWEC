@@ -4,16 +4,20 @@ table {
     width: 100%;
 }
 
+td {
+  background-color: #137f97 !important;
+}
 td,
 th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
     text-align: center;
+    background-color: #137f97 !important;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #1693af !important;
 }
 
 input {
@@ -23,3 +27,5 @@ input {
 p {
     text-align: end;
 }
+
+
