@@ -35,4 +35,12 @@ export class Articles {
       return this.totalPrice;
     }
 
+    public getIVA():number {
+      return this.totalPrice*0.21;
+    }
+
+    public getImportTotal():number {
+      return this.totalPrice - this.totalPrice*0.21;
+    }
+
 }

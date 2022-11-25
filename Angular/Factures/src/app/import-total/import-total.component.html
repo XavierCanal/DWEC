@@ -1,7 +1,5 @@
 <div>
-    <table id="articleTable">
-    </table>
-    <p>Base Imposable: <span id="imposableBase"></span>{{articles?.updateTotal()}} €</p>
-    <p>IVA (21%): <span id="iva"></span> €</p>
-    <p>Import Total: <span id="totalImport"></span> €</p>
+    <p>Base Imposable: <span id="imposableBase">{{articles?.updateTotal()}}</span> €</p>
+    <p>IVA (21%): <span *ngIf="articles" id="iva"></span>{{articles?.getIVA()}} €</p>
+    <p>Import Total: <span id="totalImport">{{articles?.getImportTotal()}}</span> €</p>
 </div>

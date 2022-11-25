@@ -3,13 +3,21 @@ table {
     border-collapse: collapse;
     width: 100%;
   }
-  
+
   td, th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
   }
-  
+
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #0f3e4c;
   }
+
+  tr:nth-child(odd) {
+    background-color: #2b6374;
+  }
+
+  tr:first-child {
+    background-color: rgb(0, 29, 50);
+}
