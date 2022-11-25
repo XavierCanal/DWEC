@@ -1,0 +1,72 @@
+.imatgePal {
+    width: 140px;
+    height: 180px;
+    margin: 0;
+}
+
+.cartesJugador {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.buttonCard {
+    padding: 0;
+}
+
+.red {
+    color:red;
+}
+
+.black {
+    color:black;
+}
+
+button {
+    font-family: inherit;
+  }
+
+.agafar, .plantarse {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    padding: 13px 50px 13px;
+    outline: 0;
+    border: 1px solid black;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+.agafar::after {
+    content: "";
+    background-color: #95eea5;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+  }
+  
+.plantarse::after {
+    content: "";
+    background-color: #ff7070;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 7px;
+    left: 7px;
+  }

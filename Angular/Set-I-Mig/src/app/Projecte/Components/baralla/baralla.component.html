@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap" rel="stylesheet" />
+
+<p [ngClass]="!passedHand?'black':'red'">Valor total: {{playerTotalValue}} </p>
+
+<div class="game">
+  <div *ngIf="selectedCards" class="cartesJugador">
+    <div *ngFor="let carta of selectedCards;">
+      <button class="buttonCard">
+        <span *ngIf="carta.status">
+          <img class="imatgePal" [src]="carta.img">
+          <p>{{carta.num}}</p>
+        </span>
+        <span *ngIf="!carta.status">
+          <img class="imatgePal" src="https://cdn.pixabay.com/photo/2012/05/07/18/53/card-game-48983_960_720.png">
+        </span>
+    </button>
+  </div><br>
+  <div>
+  <button type="button" class="plantarse">PLANTAR-SE</button> <button type="button" class="agafar">AGAFAR CARTA</button>
+  </div>
+  <div class="row">
+      <div *ngFor="let carta of baralla.cartes;">
+        <button class="buttonCard" (click)="girarCarta(carta)">
+          <span *ngIf="carta.status">
+            <img class="imatgePal" [src]="carta.img">
+          </span>
+          <span *ngIf="!carta.status">
+            <img class="imatgePal" src="https://cdn.pixabay.com/photo/2012/05/07/18/53/card-game-48983_960_720.png">
+          </span>
+      </button>
+    </div>
+  </div>
+</div>

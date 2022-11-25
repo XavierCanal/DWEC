@@ -1,0 +1,6 @@
+<p>playboard works!</p>
+<table *ngFor="let cardsRow of playboard?.board; let i = index">
+    <tr *ngFor="let card of cardsRow.row; let i = index">
+        {{card.num}}
+    </tr>
+</table>
