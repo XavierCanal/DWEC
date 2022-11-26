@@ -1,0 +1,13 @@
+<div class="card mb-4">
+  <div class="back d-flex justify-content-center">
+  <svg class="logo align-self-center" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <path ></path>
+  </svg>
+  </div>
+  <img
+      [ngClass]="this.card.revealed ? 'front' : 'transparent'"
+      src="https://www.supercoloring.com/sites/default/files/styles/medium_no_levels/public/fif/2017/11/number-{{this.card.num}}-in-cicrle-flashcard-paper-craft.png"
+      (click)="cardClick()"
+    />
+
+</div>

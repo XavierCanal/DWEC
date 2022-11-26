@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Board } from '../js/models/Board/board';
+import { Card } from '../js/models/Card/card';
+
 
 @Component({
   selector: 'app-playboard',
@@ -8,10 +10,21 @@ import { Board } from '../js/models/Board/board';
 })
 export class PlayboardComponent implements OnInit {
   playboard?: Board;
+  row:number=4;
+  column:number=5;
   constructor() { }
 
   ngOnInit(): void {
-    this.playboard = new Board(4,6);
+
+  }
+
+  generateBoard() {
+    this.playboard = new Board(this.row,this.column);
+  }
+
+  handleCardClick([num]:[number]) {
+    console.log("cardClick emit");
+    alert("CARD "+num+"CLICKED")
   }
 
 }
