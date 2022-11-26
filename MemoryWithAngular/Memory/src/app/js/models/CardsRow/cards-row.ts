@@ -9,6 +9,7 @@ export class CardsRow implements ICardsRow {
     constructor(x:number){
         console.log("cardsRow")
         this.row = returnArrayFilledWithCards(x);
+        this.shuffleCards();
     }
 
     shuffleCards(){
