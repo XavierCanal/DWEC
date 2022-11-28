@@ -17,8 +17,9 @@ export class CardComponent implements OnInit {
   }
 
   cardClick() {
-    this.clicked.emit([this.card.num]);
+    this.clicked.emit([this.card.fila]);
 
   }
+
 
 }

@@ -4,10 +4,10 @@ Files: <input type="number" [(ngModel)]="row"><br>
 Columnes: <input type="number"  [(ngModel)]="column"><br>
 <button (click)="generateBoard()">Generar tablero</button>
 <table *ngFor="let cardsRow of playboard?.board; let i = index">
-    <td *ngFor="let card of cardsRow.row; let i = index">
+    <td *ngFor="let card of cardsRow.row; let i = index" >
       <app-card
       [card]="card"
-      (clicked)="handleCardClick($event)"
+      (clicked)="handleCardClick($event,card)"
     ></app-card>
     </td>
 </table>

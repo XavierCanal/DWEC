@@ -6,8 +6,8 @@ import { Card } from "../Card/card";
 export class CardsRow implements ICardsRow {
     row: Array<Card>;
 
-    constructor(x:number){
-        this.row = returnArrayFilledWithCards(x);
+    constructor(x:number,actualRow:number){
+        this.row = returnArrayFilledWithCards(x,actualRow);
         this.shuffleCards();
     }
 

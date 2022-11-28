@@ -6,9 +6,24 @@ export class Board implements IBoard {
 
     constructor(numberOfRows:number,numberOfColumns:number) {
         for(let i=0; i<numberOfRows;i++) {
-            console.log("board")
-            this.board.push(new CardsRow(numberOfColumns))
+            this.board.push(new CardsRow(numberOfColumns,i+1))
         }
 
+    }
+
+    showAllCards() {
+      this.board.forEach(element => {
+        element.row.forEach(element => {
+          element.reveal(1);
+        });
+      });
+    }
+
+    hideAllCards() {
+      this.board.forEach(element => {
+        element.row.forEach(element => {
+          element.hide();
+        });
+      });
     }
 }
