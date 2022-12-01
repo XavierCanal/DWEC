@@ -4,3 +4,6 @@ ng new "Project Name"
 
 CRETE NEW COMPONENT:
 ng g c import-total
+
+
+https://dev.to/claudemotoba/deploy-angular-project-on-an-ubuntu-server-with-pm2-37le

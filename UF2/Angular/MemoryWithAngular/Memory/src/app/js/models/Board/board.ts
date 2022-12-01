@@ -14,7 +14,7 @@ export class Board implements IBoard {
     showAllCards() {
       this.board.forEach(element => {
         element.row.forEach(element => {
-          element.reveal(1);
+          element.reveal(10);
         });
       });
     }
