@@ -1,16 +1,17 @@
 import { Standard } from "../Standard/standard";
 
 export class Form {
-  standardList?: Array<Standard>;
+  standardList: Array<Standard> = [];
 
   constructor() {
     this.generateDefaultStandardList();
   }
 
   generateDefaultStandardList() {
-    for(let i=0; i > 4; i++) {
-      this.standardList?.push(new Standard())
+    for(let i=0; i < 4; i++) {
+      console.log("he entrat1");
+      this.standardList.push(new Standard());
+      console.log("he entrat2");
     }
-    this.standardList
   }
 }
