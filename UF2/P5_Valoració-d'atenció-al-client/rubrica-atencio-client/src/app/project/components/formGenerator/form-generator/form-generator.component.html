@@ -1,0 +1,17 @@
+<h3>Add Standard:</h3>
+<form [formGroup]="form!">
+  <div formArrayName="standard">
+    <ng-container *ngFor="let valorationGroup of standard.controls; let i = index">
+          <label>Nom:</label>
+          <input type="text" formControlName="Nom">
+          <label>Valor:</label>
+          <input type="number" formControlName="Valor">
+          <mat-icon class="delete-btn" (click)="deleteStandard(i)">
+            delete_forever</mat-icon>
+  </ng-container>
+  </div>
+
+  <button mat-mini-fab (click)="addStandard()">
+    <mat-icon class="add-course-btn">add</mat-icon>
+  </button>
+</form>

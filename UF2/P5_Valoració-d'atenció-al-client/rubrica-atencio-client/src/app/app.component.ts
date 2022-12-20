@@ -41,3 +41,25 @@ export class AppComponent {
     console.log(this.productForm.value);
   }
 }
+
+
+// // items.ts
+// export class Items {
+//   label: string;
+//   value: any;
+// }
+
+// // my-controller.ts
+// import { Items } from './items';
+
+// class MyController {
+//   public items: Items[];
+
+//   constructor() {
+//     this.items = [
+//       { label: 'Name', value: '' },
+//       { label: 'Email', value: '' },
+//       { label: 'Phone', value: '' },
+//     ];
+//   }
+// }

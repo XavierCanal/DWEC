@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 
   <h1> Dynamically Add New Input Fields in Angular </h1>
 
@@ -36,3 +36,12 @@
   <br/>
   {{this.productForm.value | json}}
 </div>
+
+<form>
+  <div ng-repeat="item in items">
+    <label>{{ item.label }}</label>
+    <input type="text" ng-model="item.value">
+  </div>
+</form> -->
+
+<app-form-generator></app-form-generator>
