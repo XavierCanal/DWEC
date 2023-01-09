@@ -1,18 +1,18 @@
-<h3>Add Standard:</h3>
-<form [formGroup]="form!">
-  <div formArrayName="standard">
-    <ng-container *ngFor="let valorationGroup of standard.controls; let i = index">
-          <label>Nom:</label>
-          <input type="text" formControlName="Nom">
-          <label>Valor:</label>
-          <input type="number" formControlName="Valor">
-          <mat-icon class="delete-btn" (click)="deleteStandard(i)">
-            delete_forever</mat-icon>
-            <br>
-  </ng-container>
-  </div>
 
-  <button mat-mini-fab (click)="addStandard()">
-    <mat-icon class="add-course-btn">add</mat-icon>
-  </button>
-</form>
+<div id="main">
+  <table class="data-table data-table-horizontal data-table-highlight">>
+    <tr *ngFor="let standard of formStandardValoration.standardList; let index = index">
+      <td (click)="deleteCriterian(index)" class="delete_row">X</td>
+      <span>Nom del Criteri:  </span>
+      <input [value]="standard.name" >
+      <td *ngFor="let valoration of standard.valorations">
+        <input type=text [value]="valoration.name" >
+        <input type="number" [value]="valoration.value" >
+      </td>
+      <button (click)="addValoration(standard)">ADD VALORATION ROW</button>
+      <button (click)="deleteValoration(standard)">DELETE VALORATION ROW</button>
+    </tr>
+  </table>
+  <button (click)="addCriterian()">ADD CRITERIAN COLUMN</button>
+</div>
+<button (click)="saveFormToLocalStorage()">SAVE</button>

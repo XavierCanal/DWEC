@@ -8,10 +8,8 @@ export class Form {
   }
 
   generateDefaultStandardList() {
-    for(let i=0; i < 4; i++) {
-      console.log("he entrat1");
+    for(let i=0; i < 1; i++) {
       this.standardList.push(new Standard());
-      console.log("he entrat2");
     }
   }
 }
