@@ -1,0 +1,14 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-between;
+}
+
+.valoration {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border: solid;
+  border-color: aquamarine;
+}

@@ -1,13 +1,13 @@
 
 <div id="main">
-  <table class="data-table data-table-horizontal data-table-highlight">>
+  <table class="data-table data-table-horizontal data-table-highlight">
     <tr *ngFor="let standard of formStandardValoration.standardList; let index = index">
       <td (click)="deleteCriterian(index)" class="delete_row">X</td>
       <span>Nom del Criteri:  </span>
       <input [value]="standard.name" >
       <td *ngFor="let valoration of standard.valorations">
-        <input type=text [value]="valoration.name" >
-        <input type="number" [value]="valoration.value" >
+        <input id="input" type=text value="{{valoration.name}}" required>
+        <input type="number" value="{{valoration.value}}" >
       </td>
       <button (click)="addValoration(standard)">ADD VALORATION ROW</button>
       <button (click)="deleteValoration(standard)">DELETE VALORATION ROW</button>

@@ -16,6 +16,9 @@ export class FormGeneratorComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if (localStorage.getItem("Form") != null) {
+      this.formStandardValoration = JSON.parse(localStorage.getItem("Form") || "");
+    }
   }
 
   addValoration(standard:Standard) {

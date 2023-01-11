@@ -43,10 +43,15 @@ h1 {
 
 td.delete_row {
   text-align: center;
-  min-width: 5px;
+  min-width: 30px;
 }
 
 .delete_row:hover {
   color: red;
   cursor:pointer;
 }
+
+.empty {
+  background-color: red;
+}
+

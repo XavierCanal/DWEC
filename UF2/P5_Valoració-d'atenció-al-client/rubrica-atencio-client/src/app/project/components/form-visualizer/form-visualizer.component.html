@@ -1,0 +1,16 @@
+<form [formGroup]="completeForm" (ngSubmit)="onSubmit()">
+  <label *ngFor="let standard of form.standardList">
+    <span>{{standard.name}}</span>
+    <div class="row">
+      <div formArrayName="valorations" *ngFor="let valoration of standard.valorations; let i = index">
+        <div class="valoration">
+          <span>{{valoration.name}}</span>
+          <div class="row">
+            <input type="radio" name="{{valoration.name}}"> {{valoration.value}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </label>
+</form>
